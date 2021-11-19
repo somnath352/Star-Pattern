@@ -1,10 +1,13 @@
-//    *   
-//   ***  
-//  ***** 
-// *******
-//  ***** 
-//   ***  
-//    *   
+//     *     
+//    ***    
+//   *****   
+//  *******  
+// ********* 
+// ********* 
+//  *******  
+//   *****   
+//    ***    
+//     *     
 
 
 #include<bits/stdc++.h>
@@ -12,12 +15,20 @@ using namespace std;
 
 int main() {
 
-	int n = 7, m = 7, k = 0;
+	int rows = 10, k = 0, n;
+	n = (rows+1) / 2;
 
-	for(int i = 1;i<=n;i++) {
-        i<=4 ? k++ : k--;
-	    for(int j = 1;j<=m;j++) {
-            if(j >= ((n-2)-k) && j <= ((n-4)+k)) {
+	for(int i = 1;i<=rows;i++) {
+	    
+	    if(rows%2 == 0) {
+	        if(i<=n) k++;
+	        if(i>n+1) k--;
+	    }
+        else 
+            i<=n ? k ++ : k--;
+
+	    for(int j = 1;j<=rows;j++) {
+            if(j >= ((n+1)-k) && j <= ((n-1)+k)) {
                 cout << "*";
                 
             }
@@ -26,7 +37,8 @@ int main() {
                 
             }
                 
-	    }
-	    cout << endl;
+	    
+        }
+        cout << endl;
 	}
 }
